@@ -1,4 +1,4 @@
-# Amazon Price Fetch
+# Amazon Price Fetch (OPENSOURCE TOOL)
 
 A robust, configurable tool for searching Amazon products and extracting price data with support for pagination, rate limiting, and multiple output formats.
 
