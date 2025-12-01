@@ -4,7 +4,7 @@ Basic tests for Amazon Price Fetch.
 
 import pytest
 from amazon_price_fetch.config.loader import load_config
-from amazon_price_fetch.utils.validators import validate_query, validate_url
+from amazon_price_fetch.utils.validators import validate_query, validate_url, ValidationError
 
 
 def test_config_loading():
@@ -28,10 +28,10 @@ def test_query_validation():
     assert validate_query("wireless mouse") == "wireless mouse"
 
     # Invalid queries
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_query("")
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_query("   ")
 
 
@@ -42,10 +42,10 @@ def test_url_validation():
     assert validate_url(valid_url) == valid_url
 
     # Invalid URLs
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_url("not-a-url")
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError):
         validate_url("https://example.com/page")  # Not Amazon
 
 

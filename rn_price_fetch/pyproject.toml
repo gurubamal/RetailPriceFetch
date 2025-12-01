@@ -8,6 +8,9 @@ packages = [
 authors = ["Ram Nath Bamal"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+amazon-price-fetch = "amazon_price_fetch.__main__:cli"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 pydantic = "^2.7.4"

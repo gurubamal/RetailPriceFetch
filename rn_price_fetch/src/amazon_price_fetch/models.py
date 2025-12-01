@@ -5,11 +5,13 @@ Data models for Amazon Price Fetch.
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class Product(BaseModel):
     """Product data model."""
+
+    model_config = ConfigDict(frozen=True)
 
     title: str
     url: str
@@ -24,12 +26,11 @@ class Product(BaseModel):
     sponsored: bool = False
     timestamp: datetime = Field(default_factory=datetime.now)
 
-    class Config:
-        frozen = True  # Immutable objects
-
 
 class SearchMetadata(BaseModel):
     """Metadata about a search operation."""
+
+    model_config = ConfigDict(frozen=True)
 
     query: str
     pages_scraped: int
@@ -39,15 +40,11 @@ class SearchMetadata(BaseModel):
     timestamp: datetime = Field(default_factory=datetime.now)
     marketplace: str = "US"
 
-    class Config:
-        frozen = True
-
 
 class SearchResult(BaseModel):
     """Complete search result with products and metadata."""
 
+    model_config = ConfigDict(frozen=True)
+
     products: list[Product]
     metadata: SearchMetadata
-
-    class Config:
-        frozen = True
