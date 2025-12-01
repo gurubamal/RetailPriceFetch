@@ -1,4 +1,4 @@
-# Amazon Price Fetch (By Ram Nath Bamal) -- Free tool 
+# Amazon Price Fetch (By Ram Nath Bamal) -- Community Support opensource tool 
 
 A robust, configurable tool for searching Amazon products and extracting price data with support for pagination, rate limiting, and multiple output formats.
 
